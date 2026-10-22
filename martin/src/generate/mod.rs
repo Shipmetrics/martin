@@ -197,6 +197,9 @@ pub enum GenerateError {
     WriteSpec(PathBuf, #[source] std::io::Error),
     #[error("Cannot decode a tile bulk mode wrote: {0}")]
     Decode(#[source] mlt_core::MltError),
+    #[cfg(feature = "tui")]
+    #[error("The review terminal failed: {0}")]
+    Review(#[source] std::io::Error),
     #[error("Serving a tile failed: {0}")]
     Served(#[source] Box<martin_core::tiles::MartinCoreError>),
     #[error("Background task failed: {0}")]
