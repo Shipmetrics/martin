@@ -306,7 +306,7 @@ fn a_known_column_the_layer_reads_has_a_path_per_value() {
                     Point,
                 ),
             ),
-            size: None,
+            shape: None,
         },
         Branch {
             layer: "devices",
@@ -332,7 +332,7 @@ fn a_known_column_the_layer_reads_has_a_path_per_value() {
                     ],
                 ),
             ),
-            size: None,
+            shape: None,
         },
         Branch {
             layer: "devices",
@@ -358,7 +358,7 @@ fn a_known_column_the_layer_reads_has_a_path_per_value() {
                     ],
                 ),
             ),
-            size: None,
+            shape: None,
         },
     ]
     "#);
@@ -465,7 +465,7 @@ fn a_value_path_cannot_select_rows_when_a_json_column_may_replace_the_column() {
                     ),
                 },
             ),
-            size: None,
+            shape: None,
         },
         Branch {
             layer: "devices",
@@ -479,7 +479,7 @@ fn a_value_path_cannot_select_rows_when_a_json_column_may_replace_the_column() {
                     ),
                 },
             ),
-            size: None,
+            shape: None,
         },
         Branch {
             layer: "devices",
@@ -493,7 +493,7 @@ fn a_value_path_cannot_select_rows_when_a_json_column_may_replace_the_column() {
                     ),
                 },
             ),
-            size: None,
+            shape: None,
         },
     ]
     "#);
@@ -622,8 +622,11 @@ fn a_rule_with_its_own_min_size_has_its_own_size_paths() {
     [
         "roads: rule 1 `class == 'major'`",
         "roads: no rule",
+        "roads: rule 1: shorter than one tile unit at z14",
+        "roads: rule 1: crosses a z14 tile edge",
         "roads: no rule: kept only at z14 by `min_size_at_maxzoom`",
         "roads: no rule: smaller than `min_size` at every zoom",
+        "roads: no rule: crosses a z14 tile edge",
     ]
     "#);
 }
@@ -653,6 +656,7 @@ fn a_short_major_road_is_kept_by_the_min_size_of_its_rule() {
     insta::assert_debug_snapshot!(taken, @r#"
     [
         "roads: rule 1 `class == 'major'`",
+        "roads: rule 1: shorter than one tile unit at z14",
     ]
     "#);
 }
