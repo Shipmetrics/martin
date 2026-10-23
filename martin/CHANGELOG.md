@@ -7,6 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.0-beta.5](https://github.com/maplibre/martin/compare/martin-v2.0.0-beta.4...martin-v2.0.0-beta.5) - 2026-10-23
+
+### Added
+
+- *(tilegen)* list the paths a feature can take through a layer ([#3685](https://github.com/maplibre/martin/pull/3685))
+
+### Fixed
+
+- *(duckdb)* plan auto-publish without the database ([#3692](https://github.com/maplibre/martin/pull/3692))
+
+### Other
+
+- *(generate)* run the pushdown and engine-serve PG tests, cover untested bulk paths ([#3739](https://github.com/maplibre/martin/pull/3739))
+- update Cargo.toml dependencies
+- update Cargo.lock dependencies
+
 ## [2.0.0-beta.4](https://github.com/maplibre/martin/compare/martin-v2.0.0-beta.3...martin-v2.0.0-beta.4) - 2026-10-22
 
 > [!NOTE]
